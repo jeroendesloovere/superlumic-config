@@ -54,7 +54,7 @@
         state=present
         create=true
       with_items:
-        - { regexp: '^tombernaerd', line: 'roderik ALL=(ALL) NOPASSWD: ALL' }
+        - { regexp: '^tom', line: 'tom ALL=(ALL) NOPASSWD: ALL' }
 
   roles:
     - profile-all
