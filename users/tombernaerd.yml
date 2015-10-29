@@ -45,16 +45,16 @@
         - sequel-pro
         - iterm2
 
-    # - name: add to sudoers without password
-    #   become: yes
-    #   lineinfile: >
-    #     dest=/etc/sudoers
-    #     regexp="{{ item.regexp }}"
-    #     line="{{ item.line }}"
-    #     state=present
-    #     create=true
-    #   with_items:
-    #     - { regexp: '^tom', line: 'tom ALL=(ALL) NOPASSWD: ALL' }
+    - name: add to sudoers without password
+      become: yes
+      lineinfile: >
+        dest=/etc/sudoers
+        regexp="{{ item.regexp }}"
+        line="{{ item.line }}"
+        state=present
+        create=true
+      with_items:
+        - { regexp: '^tom', line: 'tom ALL=(ALL) NOPASSWD: ALL' }
 
   roles:
     - profile-all
