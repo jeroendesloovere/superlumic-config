@@ -20,7 +20,6 @@
     - mtr
     - mosh
     - ack
-    - sed
     - imagemagick
     - nmap
     - rename
