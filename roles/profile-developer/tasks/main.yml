@@ -6,12 +6,26 @@
 - name: install developer brew applications
   homebrew: name={{item}} state=latest
   with_items:
+    - coreutils
+    - moreutils
+    - findutils
+    - bash
+    - zsh
     - wget
     - pwgen
     - htop-osx
     - watch
     - rsync
     - git-flow
+    - mtr
+    - mosh
+    - ack
+    - sed
+    - imagemagick
+    - nmap
+    - rename
+    - tig
+    - hub
 
 - name: install developer cask applications
   homebrew_cask: name={{item}} state=present

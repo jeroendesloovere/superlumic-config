@@ -44,7 +44,7 @@
         - phpstorm
         - sequel-pro
         - iterm2
-
+# this one assumes my username is tom, change it to yours
     - name: add to sudoers without password
       become: yes
       lineinfile: >
@@ -65,12 +65,25 @@
     - git_user_name: Tom Bernaerd
     - git_user_email: tom@bernaerd.be
     - osx_defaults:
+      ##########################################################################
+      # General OS X settings
+      ##########################################################################
       # Always show scrollbars
       # Possible values: `WhenScrolling`, `Automatic` and `Always`
       - domain: 'NSGlobalDomain'
         key: 'AppleShowScrollBars'
         type: string
         value: 'always'
+      # Disable transparency in the menu bar and elsewhere on Yosemite
+      - domain: 'com.apple.universalaccess'
+        key: 'reduceTransparency'
+        type: boolean
+        value: true
+      # Set highlight color to green
+      - domain: 'NSGlobalDomain'
+        key: 'AppleHighlightColor'
+        type: string
+        value: '0.764700 0.976500 0.568600'
       - domain: 'com.apple.dock'
         key: 'autohide'
         type: boolean
