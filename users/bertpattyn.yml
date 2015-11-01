@@ -27,6 +27,7 @@
         - transmit
         - vlc
         - virtualbox # developer
+        - virtualbox-extension-pack
         - vagrant # developer
 
     - name: add to sudoers without password
