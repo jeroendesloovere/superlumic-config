@@ -8,63 +8,17 @@
     - name: install personal cask applications
       homebrew_cask: name={{item}} state=present
       with_items:
-        - adobe-creative-cloud
-        - appcleaner
-        - caffeine
-        - calibre
-        - dash
-        - deluge
-        - disk-inventory-x
-        - dropbox
-        - filezilla
-        - firefox
         - flux
         - harvest
-        - istat-menus
-        - macdown
-        - microsoft-office365
-        - mplayerx
-        - mysqlworkbench
-        - plex-home-theater
-        - skitch
-        - skype
-        - slack
-        - spotify
-        - teamviewer
-        - telegram
-        - vlc
-        - vagrant
-        # these should be either in the profile-all or profile-developer
-        # configs but let's check anyway
-        - hipchat
-        - google-chrome
-        - google-drive
-        - lastpass
-        - iterm2
-        - phpstorm
-        - sequel-pro
-        - iterm2
-        - atom
-# this one assumes my username is tom, change it to yours
-    - name: add to sudoers without password
-      become: yes
-      lineinfile: >
-        dest=/etc/sudoers
-        regexp="{{ item.regexp }}"
-        line="{{ item.line }}"
-        state=present
-        create=true
-      with_items:
-        - { regexp: '^tom', line: 'tom ALL=(ALL) NOPASSWD: ALL' }
 
   roles:
     - profile-all
     - profile-developer
 
   vars:
-    - computername: mbptb
-    - git_user_name: Tom Bernaerd
-    - git_user_email: tom@bernaerd.be
+    - computername: testbookpro
+    - git_user_name: Test Test
+    - git_user_email: test@wijs.be
     - osx_defaults:
       ##########################################################################
       # General OS X settings
@@ -100,7 +54,7 @@
       - domain: 'com.apple.dock'
         key: 'orientation'
         type: string
-        value: bottom
+        value: right
       - domain: 'NSGlobalDomain'
         key: 'NSTableViewDefaultSizeMode'
         type: integer
@@ -145,19 +99,3 @@
         key: 'autohide-delay'
         type: int
         value: 0
-      - domain: 'NSGlobalDomain'
-        key: 'NSQuitAlwaysKeepsWindows'
-        type: boolean
-        value: false
-      - domain: 'NSGlobalDomain'
-        key: 'ApplePressAndHoldEnabled'
-        type: boolean
-        value: false
-      - domain: 'com.apple.desktopservices'
-        key: 'DSDontWriteNetworkStores'
-        type: boolean
-        value: true
-      - domain: 'com.apple.print.PrintingPrefs'
-        key: 'Quit When Finished'
-        type: boolean
-        value: true

@@ -29,6 +29,6 @@
 - name: install developer cask applications
   homebrew_cask: name={{item}} state=present
   with_items:
-    - phpstorm
+    - atom
     - sequel-pro
     - iterm2
