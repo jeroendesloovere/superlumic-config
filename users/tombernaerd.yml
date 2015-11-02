@@ -8,7 +8,7 @@
     - name: install personal cask applications
       homebrew_cask: name={{item}} state=present
       with_items:
-        - adobe-creative-cloud
+#        - adobe-creative-cloud
         - appcleaner
         - caffeine
         - calibre
@@ -22,7 +22,7 @@
         - harvest
         - istat-menus
         - macdown
-        - microsoft-office365
+#        - microsoft-office365
         - mplayerx
         - mysqlworkbench
         - plex-home-theater
@@ -41,7 +41,7 @@
         - google-drive
         - lastpass
         - iterm2
-        - phpstorm
+#        - phpstorm
         - sequel-pro
         - iterm2
         - atom
@@ -85,79 +85,98 @@
         key: 'AppleHighlightColor'
         type: string
         value: '0.764700 0.976500 0.568600'
-      - domain: 'com.apple.dock'
-        key: 'autohide'
-        type: boolean
-        value: true
-      - domain: 'com.apple.dock'
-        key: 'minimize-to-application'
-        type: integer
-        value: 1
-      - domain: 'com.apple.dock'
-        key: 'show-process-indicators'
-        type: boolean
-        value: true
-      - domain: 'com.apple.dock'
-        key: 'orientation'
-        type: string
-        value: bottom
-      - domain: 'NSGlobalDomain'
-        key: 'NSTableViewDefaultSizeMode'
-        type: integer
-        value: 1
-      - domain: 'NSGlobalDomain'
-        key: 'KeyRepeat'
-        type: integer
-        value: 2
-      - domain: 'NSGlobalDomain'
-        key: 'InitialKeyRepeat'
-        type: integer
-        value: 15
-      - domain: 'com.apple.menuextra.clock'
-        key: 'DateFormat'
-        type: string
-        value: EEE MMM d  HH:mm
-      - domain: 'com.apple.menuextra.battery'
-        key: 'ShowPercent'
-        type: string
-        value: 'YES'
-      - domain: 'com.apple.finder'
-        key: 'FXPreferredViewStyle'
-        type: string
-        value: "clmv"
-      - domain: 'NSGlobalDomain'
-        key: 'NSNavPanelExpandedStateForSaveMode'
-        type: boolean
-        value: true
-      - domain: 'NSGlobalDomain'
-        key: 'PMPrintingExpandedStateForPrint'
-        type: boolean
-        value: true
+      # Dock: Size
       - domain: 'com.apple.dock'
         key: 'tilesize'
         type: float
         value: 32
+      # Dock: instant autohide
       - domain: 'com.apple.dock'
         key: 'autohide-time-modifier'
         type: int
         value: 0
+      # Dock: instant autohide
       - domain: 'com.apple.dock'
         key: 'autohide-delay'
         type: int
         value: 0
+      # Dock: autohide
+      - domain: 'com.apple.dock'
+        key: 'autohide'
+        type: boolean
+        value: true
+      # Dock: minimize to application instead of to the right
+      - domain: 'com.apple.dock'
+        key: 'minimize-to-application'
+        type: integer
+        value: 1
+      # Dock: process indicators. Useful when PHPStorm is overthinking things
+      - domain: 'com.apple.dock'
+        key: 'show-process-indicators'
+        type: boolean
+        value: true
+      # Dock: on the bottom
+      - domain: 'com.apple.dock'
+        key: 'orientation'
+        type: string
+        value: bottom
+      # Finder: small icons in sidebar
+      - domain: 'NSGlobalDomain'
+        key: 'NSTableViewDefaultSizeMode'
+        type: integer
+        value: 1
+      # Faster key repeat
+      - domain: 'NSGlobalDomain'
+        key: 'KeyRepeat'
+        type: integer
+        value: 2
+      # Faster initial key repeat
+      - domain: 'NSGlobalDomain'
+        key: 'InitialKeyRepeat'
+        type: integer
+        value: 15
+      # Clock: date and time format
+      - domain: 'com.apple.menuextra.clock'
+        key: 'DateFormat'
+        type: string
+        value: EEE MMM d  HH:mm
+      # Battery: show percentage
+      - domain: 'com.apple.menuextra.battery'
+        key: 'ShowPercent'
+        type: string
+        value: 'YES'
+      # Finder: show list style
+      - domain: 'com.apple.finder'
+        key: 'FXPreferredViewStyle'
+        type: string
+        value: "clmv"
+      # Save mode: always expanded
+      - domain: 'NSGlobalDomain'
+        key: 'NSNavPanelExpandedStateForSaveMode'
+        type: boolean
+        value: true
+      #
       - domain: 'NSGlobalDomain'
         key: 'NSQuitAlwaysKeepsWindows'
         type: boolean
         value: false
+      # Touchpad: press and hold enabled
       - domain: 'NSGlobalDomain'
         key: 'ApplePressAndHoldEnabled'
         type: boolean
         value: false
+      # Don't write .DS_store crap to network stores
       - domain: 'com.apple.desktopservices'
         key: 'DSDontWriteNetworkStores'
         type: boolean
         value: true
+      # Printing: quit when finished
       - domain: 'com.apple.print.PrintingPrefs'
         key: 'Quit When Finished'
+        type: boolean
+        value: true
+      # Printing: always expanded
+      - domain: 'NSGlobalDomain'
+        key: 'PMPrintingExpandedStateForPrint'
         type: boolean
         value: true
