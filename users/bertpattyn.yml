@@ -16,7 +16,7 @@
         - firefox
         - iterm2
         - macdown
-        - microsoft-office-365
+        - microsoft-office365
         - mplayerx
         # - mysqlworkbench
         - sequel-pro
@@ -26,6 +26,8 @@
         - teamviewer
         - transmit
         - vlc
+        - virtualbox # developer
+        - virtualbox-extension-pack
         - vagrant # developer
 
     - name: add to sudoers without password
