@@ -33,3 +33,14 @@
     - atom
     - sequel-pro
     - iterm2
+
+- name: install developer node appications
+  npm: name={{item}} global=yes
+  with_items:
+    - bower
+    - gulp
+    - grunt
+
+- name: install bundler
+  become: yes
+  gem: name=bundler state=latest user_install=no
